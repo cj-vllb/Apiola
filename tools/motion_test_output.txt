@@ -1,0 +1,6 @@
+1 float (peak-to-peak px per hero bottle over 8 s, with 2 arrow presses) -> ([13.9, 13.9, 13.9], 'longest stall samples', [0, 0, 0], 'PASS')
+2 hero swap (x before / after; wrap bottle z-index 1 seen) -> ([720, 1051, 389], [389, 720, 1051], True, 'PASS')
+3 pinned zoom (stage, h start, h end, ratio, monotonic, centre x in 62-82%) -> ([(0, 705, 528, 1.33, True, True), (1, 691, 528, 1.31, True, True), (2, 691, 528, 1.31, True, True)], 'no img/picture/video/canvas:', True, 'PASS')
+4 why apiola (float peak-to-peak px, clickable elements) -> (18.0, 0, 'PASS')
+5 range hover (slot matrix a, b, c, d) -> ((1.06, 0.0, 0.0, 1.06), 'PASS')
+MOTION TESTS: ALL PASS

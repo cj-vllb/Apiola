@@ -1,0 +1,10 @@
+clover          on plum   mean edge dE2000 =  37.3  PASS
+clover          on teal   mean edge dE2000 =  39.4  PASS
+clover          on olive  mean edge dE2000 =  37.1  PASS
+orange blossom  on plum   mean edge dE2000 =  42.0  PASS
+orange blossom  on teal   mean edge dE2000 =  32.2  PASS
+orange blossom  on olive  mean edge dE2000 =  31.6  PASS
+acacia          on plum   mean edge dE2000 =  53.0  PASS
+acacia          on teal   mean edge dE2000 =  42.0  PASS
+acacia          on olive  mean edge dE2000 =  27.5  PASS
+EDGE CONTRAST: ALL PASS

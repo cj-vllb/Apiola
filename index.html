@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apiola</title>
+<meta name="description" content="Three single-flower honeys, raw and small-batch. Pick a jar, scroll to taste it, and find a stockist near you.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%234F3B63'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23C5A443'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,650..700,0..100&family=Manrope:wght@500;600;700&display=swap">
+<style>
+:root{--plum:#4A3D61;--on-plum:#B9D6C2;--teal:#0F5560;--on-teal:#B9D6C2;--olive:#4B6619;--on-olive:#B9D6C2;--mist:#E1E9D9;--pine:#10231F;--muted:#5E6B63;--hair:rgba(16,35,31,.14);--peach:#CFA38C;--ease-io:cubic-bezier(.65,0,.35,1);--on:#B9D6C2;
+--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{font:500 17px/1.5 Manrope,system-ui,sans-serif;background:var(--mist);color:var(--pine);overflow-x:hidden}
+h1,h2,h3,.fr{font-family:Fraunces,Georgia,serif;font-weight:700;font-variation-settings:'SOFT' 60,'opsz' 144;letter-spacing:-.02em;line-height:.95}
+.eb{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+a{color:inherit}:focus-visible{outline:3px solid var(--pine);outline-offset:2px;box-shadow:0 0 0 2px var(--mist)}
+section,footer{position:relative}
+.grain::after,.f::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.08;mix-blend-mode:soft-light;pointer-events:none}
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:26px;background:var(--mist);border:1px solid var(--hair);border-radius:99px;padding:8px 10px 8px 26px;font-size:14px;font-weight:600;white-space:nowrap}
+nav .fr{font-size:24px;letter-spacing:-.01em}nav a{text-decoration:none}nav .links{display:flex;gap:22px}
+.btn{display:inline-block;border-radius:99px;padding:12px 22px;font-weight:700;font-size:14px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
+.btn.dk{background:var(--pine);color:var(--mist)}.btn.lt{background:var(--mist);color:var(--pine)}
+/* pinned wrapper */
+#flavours{height:calc(100vh + 80vh + 300vh)}
+.stage.ui{z-index:6;margin-top:-100vh;margin-top:-100svh;pointer-events:none}.stage.ui>*{pointer-events:auto}.stage.ui #hui{pointer-events:none}.stage.ui #hui>*{pointer-events:auto}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--on)}
+#bg{position:absolute;inset:0}
+#cur{position:absolute;inset:0;will-change:transform}#cur .f{position:absolute;inset:0;background:currentColor}
+#cur svg{position:absolute;left:0;top:calc(100% - 4vh);width:100%;height:18vh;fill:currentColor}
+#hname{position:absolute;left:0;right:0;top:58%;text-align:center;font-size:16vh;z-index:2;transition:opacity .5s,transform .28s}
+#hname.out{opacity:0;transform:translateY(10px);transition:opacity .28s,transform .28s}
+#hui{position:absolute;inset:0}
+#hui h1{position:absolute;left:3vw;bottom:6vh;font-size:3.2vw}
+#cnt{position:absolute;left:50%;bottom:5vh;transform:translateX(-50%);text-align:center;font-weight:700;font-size:14px;letter-spacing:.06em}
+#dash{display:flex;gap:6px;justify-content:center;margin-top:10px}#dash i{width:34px;height:3px;background:currentColor;opacity:.3;transition:opacity .4s}#dash i.on{opacity:1}
+.arr{position:absolute;top:49%;margin-top:-26px;width:52px;height:52px;border-radius:50%;border:2px solid currentColor;background:none;color:inherit;font-size:20px;cursor:pointer;z-index:6}
+#cta{position:absolute;right:3vw;bottom:5vh;background:var(--on);color:var(--pine)}
+#st{position:absolute;pointer-events:none;left:6vw;top:50%;width:38vw;z-index:6;opacity:0;transform:translateY(-50%)}
+#st h2{font-size:7vw;margin:14px 0 18px;line-height:.92}
+#st p.t{font-size:24px;line-height:1.25;max-width:18em;margin-bottom:22px}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px}.pills span{border:1.5px solid currentColor;border-radius:99px;padding:6px 14px;font-size:13px;font-weight:700}
+.pl{width:90px;height:2px;background:rgba(185,214,194,.3);margin-top:10px}.pl i{display:block;height:100%;width:0;background:currentColor}
+#rail{position:absolute;pointer-events:none;right:3vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;z-index:6;opacity:0}
+#rail i{width:12px;height:12px;border-radius:50%;background:currentColor;opacity:.4;transition:all .3s}#rail i.on{opacity:1;transform:scale(1.4)}
+/* why */
+#why{display:flex;min-height:100vh}#why .L{flex:0 0 43.5%;background:var(--plum);position:relative}#why .wj{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}#why .wj .slot{height:86vh}
+#why .R{flex:1;padding:12vh 5vw 8vh 7%}#why h2{font-size:5vw;margin:14px 0 5vh;max-width:9em}
+#why ul{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr}
+#why li{padding:2.2vh 2vw 2.4vh 0;border-top:1px solid var(--hair)}#why li:nth-child(even){padding-left:2vw;border-left:1px solid var(--hair)}
+#why .n{font-size:9.5vh;display:inline}#why h3{font-size:clamp(24px,2.4vw,38px);display:inline;margin-left:6px}
+#why s{background:rgba(16,35,31,.08);border-radius:99px;padding:2px 12px;margin-left:8px;color:var(--muted)}#why li p{font-size:17px;margin-top:6px}
+.io{font-size:14px;color:var(--muted);margin-top:8px}
+/* bubbles */
+#bub{height:260vh}#bub .stage{background:var(--pine);color:var(--mist)}
+#bub .ln{position:absolute;left:0;right:0;white-space:nowrap;text-align:center;font-size:23vw;line-height:.9}
+#bub .l1{top:16vh;color:var(--mist)}#bub .l2{top:44vh;color:var(--peach);font-size:15.5vw}
+#bub .bj{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}#bub .bj .slot{height:64vh}
+#bub p{position:absolute;left:0;right:0;top:83vh;text-align:center;opacity:0;font-size:18px;color:rgba(227,232,222,.85)}
+/* range */
+#range{padding:12vh 2.7vw}.rh{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:5vh}
+.rh h2{font-size:5vw}.rh p{max-width:18em;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{height:70vh;border-radius:32px;position:relative;overflow:hidden;text-decoration:none;transition:transform .35s var(--ease-io);display:flex;flex-direction:column;justify-content:end;padding:30px}
+.card:hover,.card:focus-visible{transform:scale(1.03) translateY(-10px)}
+.card .cj{position:absolute;inset:0 0 18% 0;display:flex;align-items:center;justify-content:center}.card .cj .slot{height:90%}.card h3{font-size:34px;position:relative}.card .eb{position:relative;margin-top:6px}
+/* faq */
+#faq{padding:14vh 5vw;display:grid;grid-template-columns:1fr 1.2fr;gap:5vw;overflow:hidden;min-height:100vh}
+#faq h2{font-size:5vw;margin:14px 0 18px}#faq .fj{position:absolute;left:-7vw;bottom:-12vh;height:62vh;display:flex}#faq .fj .slot{height:100%}
+.q{border-top:1px solid var(--hair)}.q button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 0;font:700 21px Manrope,sans-serif;cursor:pointer}
+.q button:focus-visible{outline:3px solid var(--pine);outline-offset:2px}
+.q b{flex:none;width:34px;height:34px;border-radius:50%;background:var(--pine);color:var(--mist);display:grid;place-items:center;transition:transform .35s}
+.q div{max-height:0;overflow:hidden;transition:max-height .35s var(--ease-io)}.q div p{padding:0 50px 22px 0;color:var(--muted)}
+/* news */
+#news{background:var(--teal);color:var(--on-teal);min-height:100vh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:14vh 5vw}
+#news h2{font-size:5.4vw;max-width:9em;margin:14px auto 18px}#news p{max-width:26em;margin:0 auto 28px}
+#news form{display:flex;max-width:520px;margin:0 auto;background:var(--mist);border-radius:99px;padding:6px}
+#news input{flex:1;border:0;background:none;padding:0 20px;font:600 16px Manrope,sans-serif;color:var(--pine);border-radius:99px;min-width:0}
+#news input:focus{outline:3px solid var(--pine)}#news small{display:block;margin-top:14px;opacity:.8}
+#news .nj{position:absolute;top:16vh;height:70vh;display:flex}#news .nj .slot{height:100%}#news .a{left:-6vw}#news .b{right:-6vw}
+footer{background:var(--pine);color:var(--mist);padding:14vh 5vw 10vh;z-index:1}
+.ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}.ft h2{font-size:28px;margin-bottom:22px;max-width:12em;line-height:1.05}
+.cols{display:flex;gap:70px}.cols h4{margin-bottom:14px;opacity:.6}.cols a{display:block;margin:8px 0;text-decoration:none;cursor:pointer}.cols a:hover{text-decoration:underline}
+.fb{display:flex;justify-content:space-between;align-items:center;margin-top:12vh;font-size:14px;opacity:.9}
+.dots{display:flex;gap:14px}.dots i{width:14px;height:14px;border-radius:50%;border:1px solid var(--mist)}
+#pnl{position:fixed;inset:0;z-index:50;background:var(--pine);color:var(--mist);display:none;place-items:center;text-align:center;padding:8vw}
+#pnl.on{display:grid}#pnl h2{font-size:48px;margin-bottom:14px}#pnl .btn{margin-top:26px;background:var(--on-plum);color:var(--pine)}
+@media(max-width:767px){nav .links{display:none}nav{gap:12px;padding-left:16px}#st{width:88vw;top:22%;transform:none}#st h2{font-size:13vw}#st p.t{font-size:18px}
+#why{flex-direction:column}#why .L{flex:none;height:42vh}#why ul{grid-template-columns:1fr}#why li:nth-child(even){padding-left:0;border-left:0}#why h2,.rh h2,#faq h2{font-size:11vw}
+.cards{grid-template-columns:1fr}.card{height:60vh}#faq{grid-template-columns:1fr}#faq .fj{display:none}.rh{flex-direction:column;align-items:start}#news h2{font-size:11vw}#hui h1{font-size:8vw;bottom:14vh}.arr{top:70%}}
+/* ---------- flat bottles: slot (placement) > shadow + floater (float only) > svg ---------- */
+@property --amp{syntax:'<length>';inherits:true;initial-value:0px}
+.slot{position:relative;aspect-ratio:260/590;flex:none;transform:translate(var(--tx,0px),var(--ty,0px)) scale(var(--sc,1));will-change:transform}
+.floater{position:relative;width:100%;height:100%;animation:float var(--dur,4.2s) ease-in-out var(--delay,0s) infinite;will-change:transform;transition:--amp .9s var(--ease-io)}
+.bottle{display:block;height:100%;width:auto;overflow:visible}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,calc(var(--amp) * -1))}}
+.shadow{position:absolute;left:12%;right:-12%;bottom:-3.5%;height:9%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.40),rgba(0,0,0,.18) 45%,rgba(0,0,0,0) 72%);animation:breathe var(--dur,4.2s) ease-in-out var(--delay,0s) infinite}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.92);opacity:.72}}
+#bots{position:absolute;inset:0;z-index:3;--bh:58%}
+#bots .slot{position:absolute;left:0;top:0;height:var(--bh)}
+#decor-h{position:absolute;inset:0;z-index:2;pointer-events:none}.dc{position:absolute;inset:0;pointer-events:none}
+.decor{position:absolute;display:block;pointer-events:none;animation:drift var(--dur,6s) ease-in-out var(--delay,0s) infinite;will-change:transform}
+.decor svg{display:block;width:100%;height:auto;overflow:visible}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(var(--dx,4px),calc(var(--amp,10px) * -1))}}
+#why .L .decor{color:var(--on-plum)}#news .decor{color:var(--on-teal)}
+.card:hover .slot,.card:focus-visible .slot{--sc:1.06}.card .slot{transition:transform .35s var(--ease-io)}
+.card:hover .floater,.card:focus-visible .floater{--amp:calc(var(--a0) * 1.4)}
+.off .floater,.off .shadow,.off .decor{animation-play-state:paused}
+.is-frozen .floater,.is-frozen .shadow,.is-frozen .decor,.no-float .floater,.no-float .shadow,.no-float .decor{animation:none}
+@media(max-width:767px){#bots{--bh:40%}.decor{display:none}#why .wj .slot{height:92%}#bub .bj .slot{height:50vh}
+#news .nj{top:auto;bottom:1vh;height:30vh}#news .a{left:-9vw}#news .b{right:-9vw}
+.arr{top:auto;bottom:3.5vh;margin-top:0}#prev{left:6vw!important}#next{right:6vw!important}
+#cta{left:50%;right:auto;bottom:3.5vh;transform:translateX(-50%);white-space:nowrap}
+#cnt{white-space:nowrap;bottom:13vh}#hui h1{bottom:22vh}
+#st{top:12%}.pills{margin-bottom:18px}#st p.t{margin-bottom:14px}
+#why .wj{padding:9vh 0 2vh}#why .wj .slot{height:100%}}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.2s!important}html{scroll-behavior:auto}.floater,.shadow,.decor{animation:none!important}}
+</style></head><body>
+<nav aria-label="Main"><a href="#flavours">Honeys</a><span class="links"><a href="#why">Why Apiola</a><a href="#faq">FAQ</a><a href="#news">Newsletter</a></span><a class="fr" href="#top" aria-label="apiola">apiola</a><a class="btn dk" href="#" data-p="Stockists">Find a stockist</a></nav>
+
+<section id="flavours" aria-label="Honeys"><div class="stage">
+ <div id="bg" class="grain"></div><div id="cur"><i class="f"></i><svg id="drip" viewBox="0 0 1000 180" preserveAspectRatio="none" aria-hidden="true"><path/></svg></div>
+ <div id="hname" class="fr" aria-live="polite">clover</div>
+ <div id="decor-h" aria-hidden="true"></div><div id="bots"></div>
+</div>
+<div class="stage ui">
+ <div id="hui"><h1>Single-flower honey.<br>Jarred slowly.</h1>
+  <button class="arr" id="prev" style="left:3vw" aria-label="Previous honey">←</button><button class="arr" id="next" style="right:3vw" aria-label="Next honey">→</button>
+  <div id="cnt"><span id="ct">01 / 03 · MILD &amp; FLORAL</span><div id="dash"><i class="on"></i><i></i><i></i></div></div>
+  <a class="btn" id="cta" href="#range">Find your honey ↓</a></div>
+ <div id="st"><div class="eb" id="se">01 — MILD &amp; FLORAL</div><h2 id="sn">clover</h2><p class="t" id="sg"></p>
+  <div class="pills"><span>64 kcal per tbsp</span><span>Raw</span><span>Single flower</span></div><div class="eb">Scroll to savour</div><div class="pl"><i id="sp"></i></div></div>
+ <div id="rail"><i class="on"></i><i></i><i></i></div>
+</div></section>
+
+<section id="why" aria-label="Why Apiola"><div class="L"><div class="wj" data-b="0" data-v="D"></div><div class="dc" data-decor="why" aria-hidden="true"></div></div>
+ <div class="R"><div class="eb">WHY APIOLA</div><h2>Nothing in the jar but honey.</h2>
+ <ul>
+ <li><span class="n fr">0</span><h3>syrups</h3><div class="io">instead of <s>corn syrup</s></div><p>Every drop is nectar the bees carried home.</p></li>
+ <li><span class="n fr">0</span><h3>heat treatment</h3><div class="io">instead of <s>pasteurising</s></div><p>Warmed only enough to pour, so the pollen stays.</p></li>
+ <li><span class="n fr">0</span><h3>blending</h3><div class="io">instead of <s>mystery mixes</s></div><p>One flower, one apiary, one batch.</p></li>
+ <li><span class="n fr">0</span><h3>additives</h3><div class="io">instead of <s>flavourings</s></div><p>No colour, no scent, no shortcuts.</p></li></ul></div></section>
+
+<section id="bub" aria-label="Nectar and patience"><div class="stage"><div class="ln fr l1" id="b1">just nectar</div><div class="ln fr l2" id="b2">&amp; patience.</div>
+ <div class="bj" data-b="1" data-v="H"></div><p id="bp">Raw honey from a single bloom, jarred just as the bees made it.</p></div></section>
+
+<section id="range" aria-label="The range"><div class="rh"><div><div class="eb">THE RANGE</div><h2>Three honeys, one shelf.</h2></div><p>Each jar comes from a single bloom. Pick a favourite.</p></div><div class="cards" id="cards"></div></section>
+
+<section id="faq" aria-label="FAQ"><div><div class="eb">FAQ</div><h2>Asked and answered.</h2><p style="max-width:20em;color:var(--muted)">Something else on your mind? Write to us and a real beekeeper replies.</p></div><div id="qs"></div>
+ <div class="fj" data-b="0" data-v="F"></div></section>
+
+<section id="news" aria-label="Newsletter"><div class="nj a" data-b="1" data-v="G1"></div>
+ <div><div class="eb">NEWSLETTER</div><h2>Be first to every new bloom.</h2><p>One short email a season. New harvests, notes from the apiary and the odd recipe.</p>
+ <form id="nf"><input type="email" required placeholder="you@example.com" aria-label="Email"><button class="btn dk">Join the hive →</button></form><small id="nm">No spam. Leave any time.</small></div>
+ <div class="nj b" data-b="2" data-v="G2"></div><div class="dc" data-decor="news" aria-hidden="true"></div></section>
+
+<footer><div class="ft"><div><h2>Single-flower honey, jarred slowly.</h2><a class="btn lt" href="#" data-p="Stockists">Find a stockist</a></div>
+ <div class="cols"><div><h4 class="eb">EXPLORE</h4><a href="#flavours">Honeys</a><a href="#why">Why Apiola</a><a href="#range">The range</a><a href="#faq">FAQ</a></div>
+ <div><h4 class="eb">HELP</h4><a href="#news">Newsletter</a><a data-p="Stockists" tabindex="0">Stockists</a><a data-p="Legal" tabindex="0">Legal</a></div>
+ <div><h4 class="eb">SOCIAL</h4><a href="#">Instagram</a><a href="#">TikTok</a></div></div></div>
+ <div class="fb"><span>© 2026 Apiola. All rights reserved.</span><div class="dots" aria-hidden="true"><i style="background:var(--plum)"></i><i style="background:var(--teal)"></i><i style="background:var(--olive)"></i></div><span></span></div></footer>
+<div id="pnl" role="dialog" aria-modal="true"><div><h2 id="pt"></h2><p>Placeholder panel. Real details will appear here.</p><button class="btn" id="pc">Close</button></div></div>
+
+<script>
+"use strict";
+/* ---------- constants ---------- */
+const FLOAT_ENABLED=true,FLOAT_IN_PINNED=true,DECOR_FLOATERS=true,HANDOFF_VH=80,STAGE_VH=100;
+/* ---------- flat bottle art (vector, no transforms) ---------- */
+const CREAM = '#F6EBC9', INK = '#10231F', MUTED = '#5E6B63', GOLD = '#CFA94E';
+const VARIANTS = {
+  clover: {id:'clover', name:'clover',         size:30, honey:'#C5A443', deep:'#A98A2C', lid:'#4F3B63', label:'#5C4573', emblem:'clover'},
+  orange: {id:'orange', name:'orange blossom', size:24, honey:'#C4812B', deep:'#A8661A', lid:'#0F5560', label:'#177078', emblem:'blossom'},
+  acacia: {id:'acacia', name:'acacia',         size:30, honey:'#EDD69C', deep:'#CDB574', lid:'#4A5A2A', label:'#566A33', emblem:'raceme'}
+};
+const pol = (cx, cy, r, deg) => [cx + r*Math.cos(deg*Math.PI/180), cy + r*Math.sin(deg*Math.PI/180)];
+const f = n => Math.round(n*10)/10;
+
+function petal(cx, cy, deg, len, spread){
+  const tip = pol(cx,cy,len,deg), a = pol(cx,cy,len*.6,deg-spread), b = pol(cx,cy,len*.6,deg+spread);
+  return `<path d='M${f(cx)} ${f(cy)} Q${f(a[0])} ${f(a[1])} ${f(tip[0])} ${f(tip[1])} Q${f(b[0])} ${f(b[1])} ${f(cx)} ${f(cy)}Z'/>`;
+}
+function hexagon(cx, cy, r){                         // hexagon outline from polar points
+  const pts = [0,1,2,3,4,5].map(k => pol(cx, cy, r, 30 + k*60).map(f).join(' '));
+  return `<path d='M${pts.join(' L')}Z' fill='none' stroke='${CREAM}' stroke-width='1.8' stroke-linejoin='round'/>`;
+}
+function drop(cx, cy, s){                            // honey droplet, point up
+  return `<path d='M${f(cx)} ${f(cy-s*1.5)} C${f(cx+s*.3)} ${f(cy-s*.7)} ${f(cx+s)} ${f(cy-s*.3)} ${f(cx+s)} ${f(cy+s*.4)} A${f(s)} ${f(s)} 0 0 1 ${f(cx-s)} ${f(cy+s*.4)} C${f(cx-s)} ${f(cy-s*.3)} ${f(cx-s*.3)} ${f(cy-s*.7)} ${f(cx)} ${f(cy-s*1.5)}Z'/>`;
+}
+function emblem(kind, cx, cy){
+  let g = '', ln = '';
+  if (kind === 'blossom') {
+    for (let k = 0; k < 5; k++) g += petal(cx, cy, -90 + k*72, 32, 34);
+    for (let k = 0; k < 8; k++) { const p = pol(cx, cy, 9, k*45); g += `<circle cx='${f(p[0])}' cy='${f(p[1])}' r='1.8'/>`; }
+  } else if (kind === 'clover') {
+    [-90, 30, 150].forEach(a => { g += petal(cx, cy-2, a, 28, 46); });
+    ln = `<path d='M${cx} ${cy-2} Q${cx+4} ${cy+22} ${cx-2} ${cy+34}' stroke='${CREAM}' stroke-width='3' fill='none' stroke-linecap='round'/>`;
+  } else {                                           // acacia raceme: curved stem, hanging blossoms, two leaflets
+    const P0=[cx-14,cy-27], P1=[cx+17,cy-16], P2=[cx+4,cy+31];
+    const B = t => [0,1].map(i => (1-t)*(1-t)*P0[i] + 2*(1-t)*t*P1[i] + t*t*P2[i]);
+    ln = `<path d='M${f(P0[0])} ${f(P0[1])} Q${f(P1[0])} ${f(P1[1])} ${f(P2[0])} ${f(P2[1])}' stroke='${CREAM}' stroke-width='2.4' fill='none' stroke-linecap='round'/>`;
+    for (let k = 0; k < 10; k++) { const t = .18 + k*.08, b = B(t), side = k%2 ? -1 : 1;
+      g += `<circle cx='${f(b[0]+side*6.5)}' cy='${f(b[1]+5.5)}' r='${f(4.8-1.9*k/9)}'/>`; }
+    g += petal(P0[0]+1, P0[1]+3, -155, 13, 38) + petal(P0[0]+1, P0[1]+3, -40, 13, 38);
+  }
+  return `<g fill='${CREAM}'>${g}</g>${ln}`;
+}
+
+function buildBottle(v){
+  const u = v.id;
+  const body = 'M20 196 H240 V522 Q240 548 214 548 H46 Q20 548 20 522 Z';
+  const sil = `<rect x='80' y='10' width='100' height='58' rx='12'/><rect x='76' y='68' width='108' height='12' rx='4'/>`
+    + `<rect x='92' y='80' width='76' height='46'/><path d='M92 124 C92 156 20 150 20 196 L240 196 C240 150 168 156 168 124 Z'/>`
+    + `<path d='${body}'/><path d='M20 548 H240 V552 Q240 574 214 574 H46 Q20 574 20 552 Z'/>`;
+  return `<symbol id='bottle-${u}' viewBox='0 0 260 590'>
+  <defs>
+    <clipPath id='sil-${u}'>${sil}</clipPath>
+    <linearGradient id='shade-${u}' x1='0' x2='1'><stop offset='0' stop-color='#000' stop-opacity='0'/><stop offset='1' stop-color='#000' stop-opacity='.24'/></linearGradient>
+  </defs>
+  <g clip-path='url(#sil-${u})'>
+    <rect x='20' y='80' width='220' height='494' fill='${v.honey}'/>
+    <rect x='92' y='80' width='76' height='14' fill='#fff' opacity='.25'/>
+    <rect x='20' y='160' width='220' height='36' fill='${v.deep}' opacity='.55'/>
+    <rect x='20' y='178' width='220' height='18' fill='${v.deep}'/>
+    <rect x='20' y='548' width='220' height='26' fill='${v.deep}'/>
+    <rect x='80' y='10' width='100' height='58' fill='${v.lid}'/>
+    <rect x='80' y='10' width='100' height='14' fill='#fff' opacity='.1'/>
+    <path d='M88 26H172M88 38H172M88 50H172' stroke='#000' stroke-opacity='.14' stroke-width='2'/>
+    <rect x='76' y='68' width='108' height='12' fill='${GOLD}'/>
+    <rect x='76' y='68' width='108' height='3' fill='#fff' opacity='.35'/>
+    <path d='${body}' fill='${v.label}'/>
+    <rect x='20' y='440' width='220' height='108' fill='${CREAM}'/>
+    <rect x='20' y='440' width='220' height='1.5' fill='${INK}' opacity='.14'/>
+    <rect x='32' y='208' width='196' height='222' rx='6' fill='none' stroke='${CREAM}' stroke-opacity='.55' stroke-width='1.5'/>
+    <circle cx='130' cy='290' r='48' fill='#fff' fill-opacity='.18' stroke='${CREAM}' stroke-width='5'/>
+    ${emblem(v.emblem, 130, 290)}
+    <g fill='${CREAM}' opacity='.85'>${drop(62,246,4)}${drop(198,336,4.5)}${drop(70,334,3)}<circle cx='176' cy='224' r='2.4'/></g>
+    <g opacity='.8'>${hexagon(200,248,8)}${hexagon(60,300,6)}</g>
+    <text x='130' y='398' text-anchor='middle' font-family='Fraunces, Georgia, serif' font-weight='700' font-size='64' letter-spacing='-2' fill='${CREAM}'>apiola</text>
+    <text x='130' y='486' text-anchor='middle' font-family='Fraunces, Georgia, serif' font-weight='700' font-size='${v.size}' fill='${INK}'>${v.name}</text>
+    <text x='130' y='516' text-anchor='middle' font-family='Manrope, system-ui, sans-serif' font-weight='500' font-size='14' fill='${MUTED}'>single-flower · 250 g</text>
+    <rect x='34' y='12' width='20' height='560' rx='10' fill='#fff' opacity='.2'/>
+    <rect x='60' y='12' width='6' height='560' fill='#fff' opacity='.1'/>
+    <rect x='198' y='12' width='42' height='562' fill='url(#shade-${u})'/>
+  </g>
+  <rect x='80.8' y='10.8' width='98.4' height='56.4' rx='11.4' fill='none' stroke='#fff' stroke-opacity='.3' stroke-width='1.6'/>
+  <path d='M92 124 C92 156 20 150 20 196 V522 Q20 548 46 548' fill='none' stroke='#fff' stroke-opacity='.32' stroke-width='2'/>
+  <path d='M168 124 C168 156 240 150 240 196 V522 Q240 548 214 548' fill='none' stroke='#fff' stroke-opacity='.2' stroke-width='1.5'/>
+</symbol>`;
+}
+const SPRITE = `<svg xmlns='http://www.w3.org/2000/svg' width='0' height='0' style='position:absolute' aria-hidden='true'>${Object.values(VARIANTS).map(buildBottle).join('')}</svg>`;
+
+document.body.insertAdjacentHTML('afterbegin',SPRITE);
+/* ---------- data ---------- */
+const T=[{n:'clover',c:'MILD & FLORAL',t:'Mild, sweet and softly floral. The one that goes with everything.',bg:'#4A3D61',on:'#B9D6C2'},
+{n:'orange blossom',c:'CITRUS & LIGHT',t:'Light amber with a bright orange-peel perfume.',bg:'#0F5560',on:'#B9D6C2'},
+{n:'acacia',c:'DELICATE & CLEAR',t:'Pale, clear and delicate, and slow to crystallise.',bg:'#4B6619',on:'#B9D6C2'}];
+const ID=['clover','orange','acacia'];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),sm=(a,b,v)=>{v=cl((v-a)/(b-a));return v*v*(3-2*v)},lp=(a,b,t)=>a+(b-a)*t,ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobile=()=>innerWidth<768;
+if(!FLOAT_ENABLED)document.documentElement.classList.add('no-float');
+/* float variants: amplitude (as a height share so it scales with the bottle), period, delay */
+const FV={A:[1.55,4.2,0],B1:[1.1,3.8,.7],B2:[1.1,3.8,1.4],C:[.7,4.6,0],D:[2,4.6,0],E0:[1,4,0],E1:[1,4,.6],E2:[1,4,1.2],F:[.9,5,.4],G1:[1.35,4.2,0],G2:[1.35,4.2,2.1],H:[1.1,4.4,0]};
+const ampOf=a=>`max(6px,${a}vh)`;
+function bottleHTML(i,key,extra=''){const [a,d,dl]=FV[key];
+ return `<div class="slot" data-b="${i}" ${extra}><div class="shadow" style="--dur:${d}s;--delay:-${dl}s"></div><div class="floater" style="--amp:${ampOf(a)};--a0:${ampOf(a)};--dur:${d}s;--delay:-${dl}s"><svg class="bottle" viewBox="0 0 260 590" role="img" aria-label="Bottle of ${T[i].n} honey"><use href="#bottle-${ID[i]}"/></svg></div></div>`}
+/* ---------- drip curtain ---------- */
+function dripPath(W=1000,base=40,drips=[[90,60,16],[210,110,13],[340,40,18],[470,150,14],[610,80,17],[750,125,13],[880,55,18]]){let d='M0 0H'+W+'V'+base;[...drips].reverse().forEach(([x,len,r])=>{const y=base+len;d+=` L${x+r*2.2} ${base} C${x+r*1.1} ${base+len*.35} ${x+r} ${y-r} ${x+r} ${y} A${r} ${r} 0 0 1 ${x-r} ${y} C${x-r} ${y-r} ${x-r*1.1} ${base+len*.35} ${x-r*2.2} ${base}`});return d+' L0 '+base+'Z'}
+$('#drip path').setAttribute('d',dripPath());
+/* ---------- DOM: cards, faq, bottles ---------- */
+$('#cards').innerHTML=T.map((v,i)=>`<a class="card grain" href="#flavours" style="background:${v.bg};color:${v.on}"><div class="cj"></div><h3>${v.n}</h3><div class="eb">${v.c}</div></a>`).join('');
+$$('.card .cj').forEach((el,i)=>el.innerHTML=bottleHTML(i,'E'+i));
+$$('[data-b][data-v]').forEach(el=>el.innerHTML=bottleHTML(+el.dataset.b,el.dataset.v));
+const bots=$('#bots');bots.innerHTML=[0,1,2].map(i=>bottleHTML(i,['A','B1','B2'][i])).join('');
+const hs=$$('#bots .slot'),hfl=hs.map(s=>s.querySelector('.floater'));
+const FQ=[['Is it really from a single flower?','As close as bees allow. Each batch comes from an apiary set in one bloom, and we only jar it when that flower clearly leads.'],['Is your honey raw?','Yes. We warm it just enough to pour, never to pasteurise it.'],['Why did my honey turn solid?','That is crystallisation, and it is natural. Stand the jar in warm water (not boiling) and it will turn runny again.'],['How long does it keep?','Honey does not spoil. Keep the lid on and the jar in a cool cupboard; it tastes its best within two years.'],['Is it safe for babies?','No. Never give honey to a child under 12 months old.'],['Where can I buy Apiola?','Use the Find a stockist button, or ask your local deli to stock us.']];
+$('#qs').innerHTML=FQ.map(([q,a],i)=>`<div class="q" style="position:relative;z-index:6"><button aria-expanded="false" aria-controls="a${i}">${q}<b aria-hidden="true">+</b></button><div id="a${i}" role="region"><p>${a}</p></div></div>`).join('');
+function setFaq(i){$$('.q').forEach((q,k)=>{const o=k===i&&!q.classList.contains('o');q.classList.toggle('o',o);q.querySelector('b').textContent=o?'\u2212':'+';q.querySelector('button').setAttribute('aria-expanded',o);q.querySelector('div').style.maxHeight=o?q.querySelector('p').offsetHeight+'px':0})}
+$$('.q button').forEach((b,i)=>b.onclick=()=>setFaq(i));
+$('#nf').onsubmit=e=>{e.preventDefault();$('#nm').textContent='Thanks, you’re in the hive.'};
+$$('[data-p]').forEach(a=>a.onclick=e=>{e.preventDefault();$('#pt').textContent=a.dataset.p;$('#pnl').classList.add('on');$('#pc').focus()});$('#pc').onclick=()=>$('#pnl').classList.remove('on');
+/* ---------- decorative floaters: honey droplets and hexagon outlines ---------- */
+if(DECOR_FLOATERS){
+ const HEX='<svg viewBox="0 0 20 20"><path d="M10 1.5 L17.4 5.75 V14.25 L10 18.5 L2.6 14.25 V5.75Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+ const DROP='<svg viewBox="0 0 20 24"><path d="M10 1.5 C11 7 17 10 17 15.5 A7 7 0 0 1 3 15.5 C3 10 9 7 10 1.5Z" fill="currentColor"/></svg>';
+ const mk=(a,box)=>box.innerHTML=a.map(([x,y,w,k,o,d,dl,am,c])=>`<span class="decor" style="left:${x}%;top:${y}%;width:${w}px;opacity:${o};--dur:${d}s;--delay:-${dl}s;--amp:${am}px;--dx:${am/3}px;${c?'color:'+c:''}">${k?DROP:HEX}</span>`).join('');
+ mk([[7,17,18,1,.6,6.5,0,12,'#EDD69C'],[11,35,14,0,.5,8,1.2,9],[90,18,20,0,.55,7,.6,14],[93,36,12,1,.65,5.5,2,8,'#EDD69C']],$('#decor-h'));
+ mk([[12,12,16,0,.5,7,0,10],[84,20,12,1,.7,6,1,8,'#EDD69C'],[14,82,18,1,.6,8,.4,12,'#EDD69C']],$('[data-decor=why]'));
+ mk([[22,13,14,1,.6,6.5,0,9,'#EDD69C'],[78,16,18,0,.5,8,1,12],[24,86,16,0,.5,7,.6,10]],$('[data-decor=news]'));
+}
+/* ---------- pause animations in sections that are off-screen ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('off',!e.isIntersecting)),{rootMargin:'80px'});
+$$('section,footer').forEach(s=>io.observe(s));
+/* ---------- hero state ---------- */
+const PL={d:{x:[27,50,73],y:[49,51,49],s:[.72,1,.72]},m:{x:[18,50,82],y:[47,47,47],s:[.72,1,.72]}};
+const placeOf=(b,idx)=>[1,2,0][(b-idx+3)%3];          // 0 left, 1 centre, 2 right
+let pFrom=[1,2,0],pTo=[1,2,0],heroIdx=0,bgIdx=0,anim=false,aT=0,ys=scrollY,lastK=-1,heroAmp=[];
+const DUR=900,wrap=$('#flavours'),bub=$('#bub'),stageEl=$('#flavours .stage');
+wrap.style.height=`calc(100vh + ${HANDOFF_VH}vh + ${3*STAGE_VH}vh)`;
+function setLayers(bg,cur,p){$('#bg').style.background=bg;const c=$('#cur');if(cur&&p>0){c.style.color=cur;c.style.display='';c.style.transform=`translateY(calc(${-(1-p)*100}% - ${(1-p)*18}vh))`}else c.style.display='none'}
+if(RM)$('#bg').style.transition='background .2s';
+function go(d,to){if(anim)return;const ni=to!==undefined?to:(heroIdx+d+3)%3;if(ni===heroIdx)return;
+ const apply=()=>{pFrom=pTo.slice();pTo=[0,1,2].map(b=>placeOf(b,ni))};
+ heroIdx=ni;
+ if(RM){bots.style.transition='opacity .1s';bots.style.opacity=0;setTimeout(()=>{pFrom=[0,1,2].map(b=>placeOf(b,ni));pTo=pFrom.slice();bgIdx=ni;bots.style.opacity=1},100)}
+ else{apply();aT=performance.now();anim=true}
+ const n=$('#hname');n.classList.add('out');setTimeout(()=>{n.textContent=T[ni].n;n.style.color=T[ni].on;n.classList.remove('out')},RM?100:280);
+ $('#ct').textContent=`0${ni+1} / 03 · ${T[ni].c}`;$$('#dash i').forEach((e,k)=>e.classList.toggle('on',k==ni))}
+$('#next').onclick=()=>go(1);$('#prev').onclick=()=>go(-1);
+addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input'))return;if(e.key=='ArrowRight')go(1);if(e.key=='ArrowLeft')go(-1)});
+let sx0=0;wrap.addEventListener('touchstart',e=>sx0=e.touches[0].clientX,{passive:true});wrap.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx0;if(Math.abs(d)>50&&scrollY<innerHeight*.3)go(d<0?1:-1)});
+/* ---------- frame loop ---------- */
+const setT=(el,tx,ty,s)=>{el.style.transform=`translate(${tx}px,${ty}px) translate(-50%,-50%) scale(${s})`};
+function frame(now){requestAnimationFrame(frame);ys+=(scrollY-ys)*.14;if(Math.abs(scrollY-ys)<.4)ys=scrollY;const W=innerWidth,H=innerHeight,mob=W<768;
+ let u=1;if(anim){u=cl((now-aT)/DUR);if(u>=1){anim=false;pFrom=pTo.slice();bgIdx=heroIdx}}const ue=ease(u);
+ const rel=ys-wrap.offsetTop,ph=cl(rel/(HANDOFF_VH/100*H)),sp=cl((rel-HANDOFF_VH/100*H)/(3*STAGE_VH/100*H));
+ if(ph>.02&&!anim&&heroIdx!=0&&sp==0)go(0,0);
+ let k=0,f=0,ex=0,en=1;if(ph>=1){const s=sp*3;k=Math.min(2,Math.floor(s));f=s-k;ex=k<2?sm(.82,1,f):0;en=k>0?sm(0,.22,f):1}
+ const stageOn=ph>=1,kk=RM&&stageOn&&f>.5&&k<2?k+1:k;   // reduced motion: swap stage halfway, no zoom
+ if(RM){setLayers(T[stageOn?kk:heroIdx].bg,null,0)}
+ else if(stageOn)setLayers(T[k].bg,k<2?T[k+1].bg:null,ex);else setLayers(T[bgIdx].bg,T[heroIdx].bg,anim?ue:0);
+ wrap.style.setProperty('--on',T[stageOn?kk:heroIdx].on);
+ const hf=1-sm(0,.45,ph);$('#hui').style.opacity=hf;$('#hui').style.pointerEvents=hf>.5?'':'none';$('#hname').style.opacity=anim?'':hf;
+ const to=sm(.5,1,ph),tx=stageOn?(1-ex)*en:to;$('#st').style.opacity=RM&&stageOn?1:tx;$('#st').style.transform=`translateY(${mob?'0px':'-50%'}) translateY(${14*(1-(stageOn?en:to))}px)`;$('#rail').style.opacity=to;
+ if(kk!=lastK){lastK=kk;$('#se').textContent=`0${kk+1} — ${T[kk].c}`;$('#sn').innerHTML=T[kk].n.replace(' ','<br>');$('#sg').textContent=T[kk].t;$$('#rail i').forEach((e,i)=>e.classList.toggle('on',i==kk))}
+ $('#sp').style.width=sp*100+'%';
+ /* hero bottles: swap places, hand-off, pinned zoom-out. translate + uniform scale only */
+ const sr=stageEl.getBoundingClientRect();
+ if(sr.bottom>0&&sr.top<H){
+  const SW=bots.clientWidth,SH=bots.clientHeight,P=mob?PL.m:PL.d,TX=mob?50:72,TY=mob?79:52,pb=mob?.66:1,bk=1-sm(0,.45,ph),g=sm(.2,1,ph);
+  hs.forEach((el,b)=>{
+   if(stageOn&&b!=kk){el.style.visibility='hidden';return}el.style.visibility='';
+   let x=lp(P.x[pFrom[b]],P.x[pTo[b]],ue),y=lp(P.y[pFrom[b]],P.y[pTo[b]],ue),s=lp(P.s[pFrom[b]],P.s[pTo[b]],ue),op=1,dx=0,oy=0,z=s>.86?3:2;
+   if(Math.abs(pFrom[b]-pTo[b])==2&&anim)z=1;                      // the wrapping bottle passes behind the centre one
+   const isC=b==heroIdx;
+   if(stageOn){x=TX;y=TY;const zz=RM?1:lp(1.35,1,sm(0,.9,f));s=pb*zz*lp(1,.94,RM?0:ex);op=RM?1:(1-ex)*en;oy=RM?0:9*(ex+(1-en))/100*SH;z=3}
+   else{ if(isC){x=lp(x,TX,g);y=lp(y,TY,g);s=lp(s,(RM?1:1.35)*pb,g)}else{dx=(x<50?-1:1)*.15*W*sm(0,.45,ph);op=bk}
+        el.style.visibility=op<.01?'hidden':''}
+   el.style.zIndex=z;el.style.opacity=op;setT(el,x/100*SW+dx,y/100*SH+oy,s);
+   const am=stageOn?FV.C[0]:(isC?FV.A[0]:FV[b==(heroIdx+1)%3?'B1':'B2'][0]);
+   if(heroAmp[b]!==am){heroAmp[b]=am;hfl[b].style.setProperty('--amp',ampOf(FLOAT_IN_PINNED||!stageOn?am:0))}
+  })}
+ /* "just nectar": text moves sideways, the bottle rises in */
+ const bw=bub.getBoundingClientRect(),q=cl(-bw.top/(bw.height-H));
+ $('#b1').style.transform=`translateX(${(.45-q)*36}vw)`;$('#b2').style.transform=`translateX(${-(.45-q)*58}vw)`;$('#bp').style.opacity=sm(.55,.8,q);
+ const bs=$('.bj .slot');bs.style.setProperty('--ty',35*(1-sm(0,.25,cl((H-bw.top)/(H*.6))))+'vh');bs.style.setProperty('--sc',RM?1:lp(.94,1,sm(0,.3,q)));
+ /* parallax for the corner and newsletter bottles (translate only) */
+ const par=(el,sec,a,b)=>{if(RM)return;const r=sec.getBoundingClientRect();if(r.bottom<0||r.top>H)return;const t=cl((H-r.top)/(H+r.height));el.style.setProperty('--ty',lp(a,b,t)+'vh')};
+ par($('#faq .fj .slot'),$('#faq'),7,-7);par($('#news .a .slot'),$('#news'),6,-6);par($('#news .b .slot'),$('#news'),-6,6);
+}
+requestAnimationFrame(frame);
+window.__apiola={seek(id,p){const e=document.getElementById(id);scrollTo({top:e.offsetTop+p*(e.offsetHeight-innerHeight),behavior:'instant'})},setHero(i){go(0,i)},setFaq,freezeFloat(v){document.documentElement.classList.toggle('is-frozen',!!v)}};
+
+</script></body></html>

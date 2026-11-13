@@ -1,0 +1,2 @@
+SOURCE SCAN: clean
+FLAT TEST: 342 full-page samples, 0 failures -> PASS

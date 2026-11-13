@@ -1,0 +1,5 @@
+reduced motion: running CSS animations = 0 (need 0): PASS
+reduced motion swap: x before [605, 968, 306], 50 ms in [605, 968, 306] (no slide, bots opacity 0.779871), after [306, 605, 968]: PASS
+reduced motion pinned heights at 3 scroll points [522, 522, 522, 522]: PASS
+4x CPU throttle: max simultaneous running animations = 17 (need < ~20): PASS
+4x CPU throttle: frame gap median 16.7 ms, p95 50.0 ms over 516 frames (headless software rendering, indicative only)

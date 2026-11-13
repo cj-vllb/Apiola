@@ -1,0 +1,25 @@
+== stage and neutral colours (unchanged rules: stage >=20, neutral >=7) ==
+plum     #4A3D61 min dE2000= 20.1 need>=20 PASS
+teal     #0F5560 min dE2000= 22.1 need>=20 PASS
+olive    #4B6619 min dE2000= 20.4 need>=20 PASS
+peach    #CFA38C min dE2000= 19.4 need>=20 FAIL (carried over from the previous site, not a bottle colour)
+on-sage  #B9D6C2 min dE2000= 16.8 need>=20 FAIL (carried over from the previous site, not a bottle colour)
+mist     #E1E9D9 min dE2000=  8.0 need>=7 PASS
+pine     #10231F min dE2000= 11.1 need>=7 PASS
+== bottle honey / deep / lid / label colours (need >= 12 from every original colour, and not equal to one) ==
+clover honey #C5A443 min dE2000= 12.5 need>=12 PASS
+clover deep  #A98A2C min dE2000= 17.0 need>=12 PASS
+clover lid   #4F3B63 min dE2000= 19.9 need>=12 PASS
+clover label #5C4573 min dE2000= 17.6 need>=12 PASS
+orange honey #C4812B min dE2000= 12.4 need>=12 PASS
+orange deep  #A8661A min dE2000= 18.9 need>=12 PASS
+orange lid   #0F5560 min dE2000= 22.1 need>=12 PASS
+orange label #177078 min dE2000= 22.0 need>=12 PASS
+acacia honey #EDD69C min dE2000= 12.4 need>=12 PASS
+acacia deep  #CDB574 min dE2000= 12.7 need>=12 PASS
+acacia lid   #4A5A2A min dE2000= 16.1 need>=12 PASS
+acacia label #566A33 min dE2000= 17.7 need>=12 PASS
+== info only (cream, gold are neutrals, not label or honey colours) ==
+cream  #F6EBC9 min dE2000=  8.6
+gold   #CFA94E min dE2000= 11.1
+BOTTLE COLOURS ALL PASS
