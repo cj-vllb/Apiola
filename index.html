@@ -1,23 +1,29 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Apiola</title>
 <meta name="description" content="Three single-flower honeys, raw and small-batch. Pick a jar, scroll to taste it, and find a stockist near you.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%234F3B63'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23C5A443'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,650..700,0..100&family=Manrope:wght@500;600;700&display=swap">
 <style>
-:root{--plum:#4A3D61;--on-plum:#B9D6C2;--teal:#0F5560;--on-teal:#B9D6C2;--olive:#4B6619;--on-olive:#B9D6C2;--mist:#E1E9D9;--pine:#10231F;--muted:#5E6B63;--hair:rgba(16,35,31,.14);--peach:#CFA38C;--ease-io:cubic-bezier(.65,0,.35,1);--on:#B9D6C2;
+:root{--plum:#4A3D61;--on-plum:#B9D6C2;--teal:#0F5560;--on-teal:#B9D6C2;--olive:#4B6619;--on-olive:#B9D6C2;--mist:#E1E9D9;--pine:#10231F;--muted:#5E6B63;--hair:rgba(16,35,31,.14);--peach:#CFA38C;--ease-io:cubic-bezier(.65,0,.35,1);--on:#B9D6C2;--nt:max(16px,env(safe-area-inset-top,0px));
 --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,a{-webkit-tap-highlight-color:transparent}
 body{font:500 17px/1.5 Manrope,system-ui,sans-serif;background:var(--mist);color:var(--pine);overflow-x:hidden}
 h1,h2,h3,.fr{font-family:Fraunces,Georgia,serif;font-weight:700;font-variation-settings:'SOFT' 60,'opsz' 144;letter-spacing:-.02em;line-height:.95}
 .eb{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 a{color:inherit}:focus-visible{outline:3px solid var(--pine);outline-offset:2px;box-shadow:0 0 0 2px var(--mist)}
 section,footer{position:relative}
 .grain::after,.f::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.08;mix-blend-mode:soft-light;pointer-events:none}
-nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:26px;background:var(--mist);border:1px solid var(--hair);border-radius:99px;padding:8px 10px 8px 26px;font-size:14px;font-weight:600;white-space:nowrap}
+nav{position:fixed;top:var(--nt);left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:26px;background:var(--mist);border:1px solid var(--hair);border-radius:99px;padding:8px 10px 8px 26px;font-size:14px;font-weight:600;white-space:nowrap;max-width:calc(100vw - 20px)}
 nav .fr{font-size:24px;letter-spacing:-.01em}nav a{text-decoration:none}nav .links{display:flex;gap:22px}
+.mt{display:none;flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--hair);background:none;color:inherit;cursor:pointer;place-items:center;padding:0}
+.mt svg{width:20px;height:20px;stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}.mt .cl,.mt.x .op{display:none}.mt.x .cl{display:block}
+#menu{display:none;position:fixed;z-index:19;left:12px;right:12px;top:calc(var(--nt) + 68px);background:var(--mist);border:1px solid var(--hair);border-radius:28px;padding:8px 22px;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .25s,transform .25s,visibility .25s;max-height:calc(100svh - var(--nt) - 84px);overflow:auto}
+#menu.on{visibility:visible;opacity:1;transform:none}
+#menu a{display:block;text-decoration:none;font:700 28px/1 Fraunces,Georgia,serif;letter-spacing:-.01em;padding:17px 0;border-top:1px solid var(--hair)}#menu a:first-child{border-top:0}
 .btn{display:inline-block;border-radius:99px;padding:12px 22px;font-weight:700;font-size:14px;text-decoration:none;border:0;cursor:pointer;font-family:inherit}
 .btn.dk{background:var(--pine);color:var(--mist)}.btn.lt{background:var(--mist);color:var(--pine)}
 /* pinned wrapper */
@@ -27,7 +33,7 @@ nav .fr{font-size:24px;letter-spacing:-.01em}nav a{text-decoration:none}nav .lin
 #bg{position:absolute;inset:0}
 #cur{position:absolute;inset:0;will-change:transform}#cur .f{position:absolute;inset:0;background:currentColor}
 #cur svg{position:absolute;left:0;top:calc(100% - 4vh);width:100%;height:18vh;fill:currentColor}
-#hname{position:absolute;left:0;right:0;top:58%;text-align:center;font-size:16vh;z-index:2;transition:opacity .5s,transform .28s}
+#hname{position:absolute;left:0;right:0;top:58%;text-align:center;font-size:16vh;white-space:nowrap;z-index:2;transition:opacity .5s,transform .28s}
 #hname.out{opacity:0;transform:translateY(10px);transition:opacity .28s,transform .28s}
 #hui{position:absolute;inset:0}
 #hui h1{position:absolute;left:3vw;bottom:6vh;font-size:3.2vw}
@@ -43,11 +49,11 @@ nav .fr{font-size:24px;letter-spacing:-.01em}nav a{text-decoration:none}nav .lin
 #rail{position:absolute;pointer-events:none;right:3vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;z-index:6;opacity:0}
 #rail i{width:12px;height:12px;border-radius:50%;background:currentColor;opacity:.4;transition:all .3s}#rail i.on{opacity:1;transform:scale(1.4)}
 /* why */
-#why{display:flex;min-height:100vh}#why .L{flex:0 0 43.5%;background:var(--plum);position:relative}#why .wj{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}#why .wj .slot{height:86vh}
-#why .R{flex:1;padding:12vh 5vw 8vh 7%}#why h2{font-size:5vw;margin:14px 0 5vh;max-width:9em}
+#why{display:flex;min-height:100vh}#why .L{flex:0 0 43.5%;background:var(--plum);position:relative}#why .wj{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}#why .wj .slot{height:min(86vh,79vw)}
+#why .R{flex:1;min-width:0;padding:max(12vh,104px) 5vw 8vh 7%}#why h2{font-size:5vw;margin:14px 0 5vh;max-width:9em}
 #why ul{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr}
 #why li{padding:2.2vh 2vw 2.4vh 0;border-top:1px solid var(--hair)}#why li:nth-child(even){padding-left:2vw;border-left:1px solid var(--hair)}
-#why .n{font-size:9.5vh;display:inline}#why h3{font-size:clamp(24px,2.4vw,38px);display:inline;margin-left:6px}
+#why .n{font-size:clamp(44px,9.5vh,100px);display:inline}#why h3{font-size:clamp(24px,2.4vw,38px);display:inline;margin-left:6px}
 #why s{background:rgba(16,35,31,.08);border-radius:99px;padding:2px 12px;margin-left:8px;color:var(--muted)}#why li p{font-size:17px;margin-top:6px}
 .io{font-size:14px;color:var(--muted);margin-top:8px}
 /* bubbles */
@@ -57,36 +63,33 @@ nav .fr{font-size:24px;letter-spacing:-.01em}nav a{text-decoration:none}nav .lin
 #bub .bj{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}#bub .bj .slot{height:64vh}
 #bub p{position:absolute;left:0;right:0;top:83vh;text-align:center;opacity:0;font-size:18px;color:rgba(227,232,222,.85)}
 /* range */
-#range{padding:12vh 2.7vw}.rh{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:5vh}
+#range{padding:max(12vh,104px) 2.7vw 12vh}.rh{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:5vh}
 .rh h2{font-size:5vw}.rh p{max-width:18em;color:var(--muted)}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{height:70vh;border-radius:32px;position:relative;overflow:hidden;text-decoration:none;transition:transform .35s var(--ease-io);display:flex;flex-direction:column;justify-content:end;padding:30px}
-.card:hover,.card:focus-visible{transform:scale(1.03) translateY(-10px)}
+.card{height:min(70vh,62vw);border-radius:32px;position:relative;overflow:hidden;text-decoration:none;transition:transform .35s var(--ease-io);display:flex;flex-direction:column;justify-content:end;padding:30px}
+.card:focus-visible{transform:scale(1.03) translateY(-10px)}@media(hover:hover){.card:hover{transform:scale(1.03) translateY(-10px)}}@media(hover:none){.card:active{transform:scale(.98)}}
 .card .cj{position:absolute;inset:0 0 18% 0;display:flex;align-items:center;justify-content:center}.card .cj .slot{height:90%}.card h3{font-size:34px;position:relative}.card .eb{position:relative;margin-top:6px}
 /* faq */
-#faq{padding:14vh 5vw;display:grid;grid-template-columns:1fr 1.2fr;gap:5vw;overflow:hidden;min-height:100vh}
+#faq{padding:max(14vh,104px) 5vw 14vh;display:grid;grid-template-columns:1fr 1.2fr;gap:5vw;overflow:hidden;min-height:100vh}
 #faq h2{font-size:5vw;margin:14px 0 18px}#faq .fj{position:absolute;left:-7vw;bottom:-12vh;height:62vh;display:flex}#faq .fj .slot{height:100%}
 .q{border-top:1px solid var(--hair)}.q button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 0;font:700 21px Manrope,sans-serif;cursor:pointer}
 .q button:focus-visible{outline:3px solid var(--pine);outline-offset:2px}
 .q b{flex:none;width:34px;height:34px;border-radius:50%;background:var(--pine);color:var(--mist);display:grid;place-items:center;transition:transform .35s}
 .q div{max-height:0;overflow:hidden;transition:max-height .35s var(--ease-io)}.q div p{padding:0 50px 22px 0;color:var(--muted)}
 /* news */
-#news{background:var(--teal);color:var(--on-teal);min-height:100vh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:14vh 5vw}
+#news{background:var(--teal);color:var(--on-teal);min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;text-align:center;overflow:hidden;padding:max(14vh,104px) 5vw 14vh}#news .nc{width:100%;min-width:0}
 #news h2{font-size:5.4vw;max-width:9em;margin:14px auto 18px}#news p{max-width:26em;margin:0 auto 28px}
 #news form{display:flex;max-width:520px;margin:0 auto;background:var(--mist);border-radius:99px;padding:6px}
 #news input{flex:1;border:0;background:none;padding:0 20px;font:600 16px Manrope,sans-serif;color:var(--pine);border-radius:99px;min-width:0}
 #news input:focus{outline:3px solid var(--pine)}#news small{display:block;margin-top:14px;opacity:.8}
-#news .nj{position:absolute;top:16vh;height:70vh;display:flex}#news .nj .slot{height:100%}#news .a{left:-6vw}#news .b{right:-6vw}
+#news .nj{position:absolute;top:16vh;height:min(70vh,48vw);display:flex}#news .nj .slot{height:100%}#news .a{left:-6vw}#news .b{right:-6vw}
 footer{background:var(--pine);color:var(--mist);padding:14vh 5vw 10vh;z-index:1}
 .ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}.ft h2{font-size:28px;margin-bottom:22px;max-width:12em;line-height:1.05}
 .cols{display:flex;gap:70px}.cols h4{margin-bottom:14px;opacity:.6}.cols a{display:block;margin:8px 0;text-decoration:none;cursor:pointer}.cols a:hover{text-decoration:underline}
 .fb{display:flex;justify-content:space-between;align-items:center;margin-top:12vh;font-size:14px;opacity:.9}
 .dots{display:flex;gap:14px}.dots i{width:14px;height:14px;border-radius:50%;border:1px solid var(--mist)}
-#pnl{position:fixed;inset:0;z-index:50;background:var(--pine);color:var(--mist);display:none;place-items:center;text-align:center;padding:8vw}
+#pnl{position:fixed;inset:0;z-index:50;background:var(--pine);color:var(--mist);display:none;place-items:center;text-align:center;padding:8vw;overscroll-behavior:contain;touch-action:none}
 #pnl.on{display:grid}#pnl h2{font-size:48px;margin-bottom:14px}#pnl .btn{margin-top:26px;background:var(--on-plum);color:var(--pine)}
-@media(max-width:767px){nav .links{display:none}nav{gap:12px;padding-left:16px}#st{width:88vw;top:22%;transform:none}#st h2{font-size:13vw}#st p.t{font-size:18px}
-#why{flex-direction:column}#why .L{flex:none;height:42vh}#why ul{grid-template-columns:1fr}#why li:nth-child(even){padding-left:0;border-left:0}#why h2,.rh h2,#faq h2{font-size:11vw}
-.cards{grid-template-columns:1fr}.card{height:60vh}#faq{grid-template-columns:1fr}#faq .fj{display:none}.rh{flex-direction:column;align-items:start}#news h2{font-size:11vw}#hui h1{font-size:8vw;bottom:14vh}.arr{top:70%}}
 /* ---------- flat bottles: slot (placement) > shadow + floater (float only) > svg ---------- */
 @property --amp{syntax:'<length>';inherits:true;initial-value:0px}
 .slot{position:relative;aspect-ratio:260/590;flex:none;transform:translate(var(--tx,0px),var(--ty,0px)) scale(var(--sc,1));will-change:transform}
@@ -96,27 +99,109 @@ footer{background:var(--pine);color:var(--mist);padding:14vh 5vw 10vh;z-index:1}
 .shadow{position:absolute;left:12%;right:-12%;bottom:-3.5%;height:9%;border-radius:50%;pointer-events:none;
   background:radial-gradient(ellipse at 50% 50%,rgba(0,0,0,.40),rgba(0,0,0,.18) 45%,rgba(0,0,0,0) 72%);animation:breathe var(--dur,4.2s) ease-in-out var(--delay,0s) infinite}
 @keyframes breathe{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.92);opacity:.72}}
-#bots{position:absolute;inset:0;z-index:3;--bh:58%}
+#bots{position:absolute;inset:0;z-index:3;--bh:min(58%,56vw)}
 #bots .slot{position:absolute;left:0;top:0;height:var(--bh)}
 #decor-h{position:absolute;inset:0;z-index:2;pointer-events:none}.dc{position:absolute;inset:0;pointer-events:none}
 .decor{position:absolute;display:block;pointer-events:none;animation:drift var(--dur,6s) ease-in-out var(--delay,0s) infinite;will-change:transform}
 .decor svg{display:block;width:100%;height:auto;overflow:visible}
 @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(var(--dx,4px),calc(var(--amp,10px) * -1))}}
 #why .L .decor{color:var(--on-plum)}#news .decor{color:var(--on-teal)}
-.card:hover .slot,.card:focus-visible .slot{--sc:1.06}.card .slot{transition:transform .35s var(--ease-io)}
-.card:hover .floater,.card:focus-visible .floater{--amp:calc(var(--a0) * 1.4)}
+.card:focus-visible .slot{--sc:1.06}@media(hover:hover){.card:hover .slot{--sc:1.06}}.card .slot{transition:transform .35s var(--ease-io)}
+.card:focus-visible .floater{--amp:calc(var(--a0) * 1.4)}@media(hover:hover){.card:hover .floater{--amp:calc(var(--a0) * 1.4)}}
 .off .floater,.off .shadow,.off .decor{animation-play-state:paused}
 .is-frozen .floater,.is-frozen .shadow,.is-frozen .decor,.no-float .floater,.no-float .shadow,.no-float .decor{animation:none}
-@media(max-width:767px){#bots{--bh:40%}.decor{display:none}#why .wj .slot{height:92%}#bub .bj .slot{height:50vh}
-#news .nj{top:auto;bottom:1vh;height:30vh}#news .a{left:-9vw}#news .b{right:-9vw}
-.arr{top:auto;bottom:3.5vh;margin-top:0}#prev{left:6vw!important}#next{right:6vw!important}
-#cta{left:50%;right:auto;bottom:3.5vh;transform:translateX(-50%);white-space:nowrap}
-#cnt{white-space:nowrap;bottom:13vh}#hui h1{bottom:22vh}
-#st{top:12%}.pills{margin-bottom:18px}#st p.t{margin-bottom:14px}
-#why .wj{padding:9vh 0 2vh}#why .wj .slot{height:100%}}
+/* ---------- responsive ----------
+   tiers: <=900 tablet-portrait / small, <=767 phone, short landscape (phones on their side).
+   Desktop (>900 wide, landscape) is untouched apart from size caps that never bite there. */
+#bub.fit .l1{font-size:var(--fs)}#bub.fit .l2{font-size:calc(var(--fs) * .674)}
+#bub.pt .l1{top:max(17svh,96px)}#bub.pt .l2{top:calc(max(17svh,96px) + var(--fs) * .92)}
+#bub.pt .bj{align-items:flex-end;padding-bottom:14svh}#bub.pt .bj .slot{height:46svh}
+#bub.pt p{top:auto;bottom:4.5svh;padding:0 7vw;font-size:clamp(15px,2.4vw,20px)}
+
+@media(max-width:900px){
+ #why{flex-direction:column;min-height:0}
+ #why .L{flex:none;height:clamp(320px,50svh,540px)}
+ #why .wj{padding:max(9svh,84px) 0 2svh}#why .wj .slot{height:100%}
+ #why .R{flex:none;padding:7svh 6vw 10svh}
+ #why h2,.rh h2,#faq h2,#news h2{font-size:clamp(40px,8vw,68px)}
+ #why h2{max-width:11em;margin-bottom:4svh}
+ #why li{padding-right:3vw}
+ #range{padding-bottom:10svh}
+ .card{padding:24px}.card h3{font-size:clamp(26px,3.6vw,34px)}
+ #news .a{left:-4vw}#news .b{right:-4vw}
+}
+@media(max-width:900px) and (orientation:portrait){
+ #news{padding-bottom:calc(34svh + 24px)}
+ #news .nj{top:auto;bottom:1svh;height:min(34svh,56vw)}
+}
+
+@media(max-width:767px){
+ /* nav: links collapse into a menu */
+ nav{gap:8px;padding:6px 6px 6px 6px}
+ nav .links,nav .hl{display:none}
+ .mt{display:grid}#menu{display:block}
+ nav .fr{font-size:22px;padding:0 6px}
+ nav .btn{padding:12px 17px;font-size:13px}
+ .decor{display:none}
+ /* hero */
+ #bots{--bh:min(38%,84vw)}
+ #hname{top:55svh;font-size:min(15svh,22vw)}
+ #hui{display:grid;grid-template-columns:auto 1fr auto;align-content:end;align-items:center;gap:12px 0;padding:0 5vw calc(3.5svh + env(safe-area-inset-bottom,0px))}
+ #hui h1{position:static;grid-column:1/-1;grid-row:1;text-align:center;font-size:clamp(24px,7.4vw,40px);margin-bottom:4px}
+ #cnt{position:static;transform:none;grid-column:1/-1;grid-row:2;white-space:nowrap;margin-bottom:6px}
+ .arr{position:static;margin:0;grid-row:3;top:auto;width:50px;height:50px}
+ #prev{grid-column:1}#next{grid-column:3}
+ #cta{position:static;transform:none;grid-column:2;justify-self:center;white-space:nowrap;padding:14px 22px}
+ /* pinned flavour text */
+ #st{left:5vw;width:84vw;top:max(12svh,92px)}
+ #st h2{font-size:clamp(36px,13vw,64px);margin:10px 0 12px}#st p.t{font-size:18px;margin-bottom:14px}
+ .pills{margin-bottom:18px}.pills span{font-size:12.5px;padding:5px 12px}
+ #rail{right:2.5vw}
+ /* why */
+ #why .L{height:clamp(300px,46svh,440px)}
+ #why ul{grid-template-columns:1fr}#why li:nth-child(even){padding-left:0;border-left:0}
+ #why h2,.rh h2,#faq h2,#news h2{font-size:clamp(36px,11vw,56px)}
+ /* range */
+ .rh{flex-direction:column;align-items:start;gap:14px}
+ .cards{grid-template-columns:1fr}.card{height:clamp(440px,60svh,540px)}
+ /* faq */
+ #faq{grid-template-columns:1fr;gap:4svh;min-height:0;padding-bottom:12svh}#faq .fj{display:none}
+ .q button{font-size:18px;padding:18px 0;gap:14px}.q div p{padding-right:8px}
+ /* newsletter */
+ #news .nj{height:min(30svh,52vw)}#news .a{left:-9vw}#news .b{right:-9vw}
+ #news{padding-bottom:calc(30svh + 24px)}
+ #news small{margin-top:12px}
+ /* footer */
+ footer{padding:max(12svh,80px) 6vw calc(8svh + env(safe-area-inset-bottom,0px))}
+ .ft{gap:36px}.ft h2{font-size:26px}
+ .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:26px 22px;width:100%}
+ .fb{flex-direction:column;align-items:flex-start;gap:18px;margin-top:8svh}.fb span:empty{display:none}
+ #pnl{padding:6vw}#pnl h2{font-size:clamp(30px,9vw,48px)}
+}
+@media(max-width:380px){
+ #news form{flex-direction:column;border-radius:28px;gap:6px}
+ #news input{padding:14px 18px}#news form .btn{width:100%;text-align:center;padding:14px}
+ nav .btn{padding:12px 14px;font-size:12.5px}
+}
+
+/* phones on their side: short viewport, so size by height and keep clear of the nav */
+@media(max-height:520px) and (orientation:landscape){
+ :root{--nt:max(8px,env(safe-area-inset-top,0px))}
+ nav{padding:5px 6px 5px 20px;gap:18px}nav .fr{font-size:20px}nav .btn{padding:8px 16px}.mt{width:34px;height:34px}
+ #menu{top:calc(var(--nt) + 52px)}
+ #hname{font-size:15svh}
+ #st{top:56%}#st h2{font-size:min(7vw,14svh);margin:8px 0 10px}#st p.t{font-size:clamp(14px,4.2svh,18px);margin-bottom:10px;line-height:1.2}
+ .pills{margin-bottom:10px;gap:6px}.pills span{font-size:11px;padding:3px 10px}
+ #why .L{height:clamp(280px,80svh,400px)}
+ #why h2,.rh h2,#faq h2,#news h2{font-size:min(8vw,13svh)}
+ .card{height:max(70svh,300px)}
+ #bub.fit .l1{top:max(14svh,60px)}
+ #pnl h2{font-size:clamp(26px,8svh,48px)}
+}
 @media(prefers-reduced-motion:reduce){*{transition-duration:.2s!important}html{scroll-behavior:auto}.floater,.shadow,.decor{animation:none!important}}
 </style></head><body>
-<nav aria-label="Main"><a href="#flavours">Honeys</a><span class="links"><a href="#why">Why Apiola</a><a href="#faq">FAQ</a><a href="#news">Newsletter</a></span><a class="fr" href="#top" aria-label="apiola">apiola</a><a class="btn dk" href="#" data-p="Stockists">Find a stockist</a></nav>
+<nav aria-label="Main"><button class="mt" id="mt" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><svg class="op" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg><svg class="cl" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 4.5l11 11M15.5 4.5l-11 11"/></svg></button><a class="hl" href="#flavours">Honeys</a><span class="links"><a href="#why">Why Apiola</a><a href="#faq">FAQ</a><a href="#news">Newsletter</a></span><a class="fr" href="#top" aria-label="apiola">apiola</a><a class="btn dk" href="#" data-p="Stockists">Find a stockist</a></nav>
+<div id="menu" aria-label="Menu"><a href="#flavours">Honeys</a><a href="#why">Why Apiola</a><a href="#range">The range</a><a href="#faq">FAQ</a><a href="#news">Newsletter</a></div>
 
 <section id="flavours" aria-label="Honeys"><div class="stage">
  <div id="bg" class="grain"></div><div id="cur"><i class="f"></i><svg id="drip" viewBox="0 0 1000 180" preserveAspectRatio="none" aria-hidden="true"><path/></svg></div>
@@ -150,7 +235,7 @@ footer{background:var(--pine);color:var(--mist);padding:14vh 5vw 10vh;z-index:1}
  <div class="fj" data-b="0" data-v="F"></div></section>
 
 <section id="news" aria-label="Newsletter"><div class="nj a" data-b="1" data-v="G1"></div>
- <div><div class="eb">NEWSLETTER</div><h2>Be first to every new bloom.</h2><p>One short email a season. New harvests, notes from the apiary and the odd recipe.</p>
+ <div class="nc"><div class="eb">NEWSLETTER</div><h2>Be first to every new bloom.</h2><p>One short email a season. New harvests, notes from the apiary and the odd recipe.</p>
  <form id="nf"><input type="email" required placeholder="you@example.com" aria-label="Email"><button class="btn dk">Join the hive →</button></form><small id="nm">No spam. Leave any time.</small></div>
  <div class="nj b" data-b="2" data-v="G2"></div><div class="dc" data-decor="news" aria-hidden="true"></div></section>
 
@@ -279,7 +364,16 @@ $('#qs').innerHTML=FQ.map(([q,a],i)=>`<div class="q" style="position:relative;z-
 function setFaq(i){$$('.q').forEach((q,k)=>{const o=k===i&&!q.classList.contains('o');q.classList.toggle('o',o);q.querySelector('b').textContent=o?'\u2212':'+';q.querySelector('button').setAttribute('aria-expanded',o);q.querySelector('div').style.maxHeight=o?q.querySelector('p').offsetHeight+'px':0})}
 $$('.q button').forEach((b,i)=>b.onclick=()=>setFaq(i));
 $('#nf').onsubmit=e=>{e.preventDefault();$('#nm').textContent='Thanks, you’re in the hive.'};
-$$('[data-p]').forEach(a=>a.onclick=e=>{e.preventDefault();$('#pt').textContent=a.dataset.p;$('#pnl').classList.add('on');$('#pc').focus()});$('#pc').onclick=()=>$('#pnl').classList.remove('on');
+$$('[data-p]').forEach(a=>a.onclick=e=>{e.preventDefault();menu(false);$('#pt').textContent=a.dataset.p;$('#pnl').classList.add('on');$('#pc').focus()});$('#pc').onclick=()=>$('#pnl').classList.remove('on');
+/* ---------- phone menu ---------- */
+const mt=$('#mt'),mn=$('#menu');
+function menu(o){mn.classList.toggle('on',o);mt.classList.toggle('x',o);mt.setAttribute('aria-expanded',o)}
+mt.onclick=e=>{e.stopPropagation();menu(!mn.classList.contains('on'))};
+mn.addEventListener('click',e=>{if(e.target.closest('a'))menu(false)});
+addEventListener('click',e=>{if(!e.target.closest('#menu'))menu(false)});
+addEventListener('keydown',e=>{if(e.key=='Escape'){menu(false);$('#pnl').classList.remove('on')}});
+/* open FAQ answers keep the right height when the width (and so the wrapping) changes */
+const refaq=()=>$$('.q.o').forEach(q=>q.querySelector('div').style.maxHeight=q.querySelector('p').offsetHeight+'px');
 /* ---------- decorative floaters: honey droplets and hexagon outlines ---------- */
 if(DECOR_FLOATERS){
  const HEX='<svg viewBox="0 0 20 20"><path d="M10 1.5 L17.4 5.75 V14.25 L10 18.5 L2.6 14.25 V5.75Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>';
@@ -293,11 +387,27 @@ if(DECOR_FLOATERS){
 const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('off',!e.isIntersecting)),{rootMargin:'80px'});
 $$('section,footer').forEach(s=>io.observe(s));
 /* ---------- hero state ---------- */
-const PL={d:{x:[27,50,73],y:[49,51,49],s:[.72,1,.72]},m:{x:[18,50,82],y:[47,47,47],s:[.72,1,.72]}};
+const PL={d:{x:[27,50,73],y:[49,51,49],s:[.72,1,.72]},m:{x:[18,50,82],y:[41,41,41],s:[.72,1,.72]}};
 const placeOf=(b,idx)=>[1,2,0][(b-idx+3)%3];          // 0 left, 1 centre, 2 right
 let pFrom=[1,2,0],pTo=[1,2,0],heroIdx=0,bgIdx=0,anim=false,aT=0,ys=scrollY,lastK=-1,heroAmp=[];
 const DUR=900,wrap=$('#flavours'),bub=$('#bub'),stageEl=$('#flavours .stage');
 wrap.style.height=`calc(100vh + ${HANDOFF_VH}vh + ${3*STAGE_VH}vh)`;
+/* ---------- responsive helpers ---------- */
+/* H0 = pinned stage height (svh): stays put when a phone's address bar slides away, so scroll progress does not jump */
+let H0=innerHeight,FIT=false;
+const textW=el=>{const r=document.createRange();r.selectNodeContents(el);return r.getBoundingClientRect().width};
+/* hero name: shrink only when it would be wider than the screen (long names on narrow screens) */
+function fitName(){const n=$('#hname');n.style.fontSize='';const fs=parseFloat(getComputedStyle(n).fontSize),w=textW(n),mx=innerWidth*.92;if(w>mx)n.style.fontSize=fs*mx/w+'px'}
+/* "just nectar / & patience.": on narrow, portrait or short screens fit the lines to the screen */
+function fitBub(){const W=innerWidth,H=H0,fit=W<=900||H<=500||innerHeight>W,pt=innerHeight>W;FIT=fit;
+ bub.classList.toggle('fit',fit);bub.classList.toggle('pt',fit&&pt);
+ if(!fit){bub.style.removeProperty('--fs');return}
+ bub.style.setProperty('--fs','100px');
+ let fs=100*W*.86/Math.max(textW($('#b1')),textW($('#b2'))/.674);if(!pt)fs=Math.min(fs,H*.3);
+ bub.style.setProperty('--fs',fs+'px')}
+function relayout(){H0=stageEl.offsetHeight||innerHeight;fitName();fitBub();refaq();if(innerWidth>767)menu(false)}
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(relayout,80)});addEventListener('orientationchange',()=>setTimeout(relayout,250));
+relayout();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(relayout);
 function setLayers(bg,cur,p){$('#bg').style.background=bg;const c=$('#cur');if(cur&&p>0){c.style.color=cur;c.style.display='';c.style.transform=`translateY(calc(${-(1-p)*100}% - ${(1-p)*18}vh))`}else c.style.display='none'}
 if(RM)$('#bg').style.transition='background .2s';
 function go(d,to){if(anim)return;const ni=to!==undefined?to:(heroIdx+d+3)%3;if(ni===heroIdx)return;
@@ -305,14 +415,16 @@ function go(d,to){if(anim)return;const ni=to!==undefined?to:(heroIdx+d+3)%3;if(n
  heroIdx=ni;
  if(RM){bots.style.transition='opacity .1s';bots.style.opacity=0;setTimeout(()=>{pFrom=[0,1,2].map(b=>placeOf(b,ni));pTo=pFrom.slice();bgIdx=ni;bots.style.opacity=1},100)}
  else{apply();aT=performance.now();anim=true}
- const n=$('#hname');n.classList.add('out');setTimeout(()=>{n.textContent=T[ni].n;n.style.color=T[ni].on;n.classList.remove('out')},RM?100:280);
+ const n=$('#hname');n.classList.add('out');setTimeout(()=>{n.textContent=T[ni].n;n.style.color=T[ni].on;fitName();n.classList.remove('out')},RM?100:280);
  $('#ct').textContent=`0${ni+1} / 03 · ${T[ni].c}`;$$('#dash i').forEach((e,k)=>e.classList.toggle('on',k==ni))}
 $('#next').onclick=()=>go(1);$('#prev').onclick=()=>go(-1);
 addEventListener('keydown',e=>{if(e.target.closest&&e.target.closest('input'))return;if(e.key=='ArrowRight')go(1);if(e.key=='ArrowLeft')go(-1)});
-let sx0=0;wrap.addEventListener('touchstart',e=>sx0=e.touches[0].clientX,{passive:true});wrap.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx0;if(Math.abs(d)>50&&scrollY<innerHeight*.3)go(d<0?1:-1)});
+let sx0=0,sy0=0;wrap.addEventListener('touchstart',e=>{sx0=e.touches[0].clientX;sy0=e.touches[0].clientY},{passive:true});
+/* swipe = deliberate sideways gesture only, so a slightly diagonal scroll does not flip the honey */
+wrap.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx0,v=e.changedTouches[0].clientY-sy0;if(Math.abs(d)>50&&Math.abs(d)>Math.abs(v)*1.6&&scrollY<H0*.3)go(d<0?1:-1)});
 /* ---------- frame loop ---------- */
 const setT=(el,tx,ty,s)=>{el.style.transform=`translate(${tx}px,${ty}px) translate(-50%,-50%) scale(${s})`};
-function frame(now){requestAnimationFrame(frame);ys+=(scrollY-ys)*.14;if(Math.abs(scrollY-ys)<.4)ys=scrollY;const W=innerWidth,H=innerHeight,mob=W<768;
+function frame(now){requestAnimationFrame(frame);ys+=(scrollY-ys)*.14;if(Math.abs(scrollY-ys)<.4)ys=scrollY;const W=innerWidth,H=H0,mob=W<768;
  let u=1;if(anim){u=cl((now-aT)/DUR);if(u>=1){anim=false;pFrom=pTo.slice();bgIdx=heroIdx}}const ue=ease(u);
  const rel=ys-wrap.offsetTop,ph=cl(rel/(HANDOFF_VH/100*H)),sp=cl((rel-HANDOFF_VH/100*H)/(3*STAGE_VH/100*H));
  if(ph>.02&&!anim&&heroIdx!=0&&sp==0)go(0,0);
@@ -328,7 +440,7 @@ function frame(now){requestAnimationFrame(frame);ys+=(scrollY-ys)*.14;if(Math.ab
  /* hero bottles: swap places, hand-off, pinned zoom-out. translate + uniform scale only */
  const sr=stageEl.getBoundingClientRect();
  if(sr.bottom>0&&sr.top<H){
-  const SW=bots.clientWidth,SH=bots.clientHeight,P=mob?PL.m:PL.d,TX=mob?50:72,TY=mob?79:52,pb=mob?.66:1,bk=1-sm(0,.45,ph),g=sm(.2,1,ph);
+  const SW=bots.clientWidth,SH=bots.clientHeight,P=mob?PL.m:PL.d,TX=mob?50:72,TY=mob?(H<700?81:79):52,pb=mob?(H<700?.56:.66):1,bk=1-sm(0,.45,ph),g=sm(.2,1,ph);
   hs.forEach((el,b)=>{
    if(stageOn&&b!=kk){el.style.visibility='hidden';return}el.style.visibility='';
    let x=lp(P.x[pFrom[b]],P.x[pTo[b]],ue),y=lp(P.y[pFrom[b]],P.y[pTo[b]],ue),s=lp(P.s[pFrom[b]],P.s[pTo[b]],ue),op=1,dx=0,oy=0,z=s>.86?3:2;
@@ -343,7 +455,8 @@ function frame(now){requestAnimationFrame(frame);ys+=(scrollY-ys)*.14;if(Math.ab
   })}
  /* "just nectar": text moves sideways, the bottle rises in */
  const bw=bub.getBoundingClientRect(),q=cl(-bw.top/(bw.height-H));
- $('#b1').style.transform=`translateX(${(.45-q)*36}vw)`;$('#b2').style.transform=`translateX(${-(.45-q)*58}vw)`;$('#bp').style.opacity=sm(.55,.8,q);
+ const sl=FIT?.25:1;   // fitted lines slide less so they stay on screen
+ $('#b1').style.transform=`translateX(${(.45-q)*36*sl}vw)`;$('#b2').style.transform=`translateX(${-(.45-q)*58*sl}vw)`;$('#bp').style.opacity=sm(.55,.8,q);
  const bs=$('.bj .slot');bs.style.setProperty('--ty',35*(1-sm(0,.25,cl((H-bw.top)/(H*.6))))+'vh');bs.style.setProperty('--sc',RM?1:lp(.94,1,sm(0,.3,q)));
  /* parallax for the corner and newsletter bottles (translate only) */
  const par=(el,sec,a,b)=>{if(RM)return;const r=sec.getBoundingClientRect();if(r.bottom<0||r.top>H)return;const t=cl((H-r.top)/(H+r.height));el.style.setProperty('--ty',lp(a,b,t)+'vh')};
